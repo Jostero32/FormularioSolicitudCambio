@@ -19,7 +19,7 @@ function Login() {
     const usuario = usuarios.find(u => u.user === user && u.clave === clave);
     if (usuario) {
       if (usuario.role === "admin") {
-        navegar("/admin");
+        navegar("/solicitudes");
       } else if (usuario.role === "user") {
         navegar("/inicio");
       } else {
