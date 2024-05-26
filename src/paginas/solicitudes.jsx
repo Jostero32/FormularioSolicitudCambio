@@ -14,7 +14,7 @@ function Solicitudes() {
     const handleAceptar = (key) => {
         const updatedSolicitudes = solicitudes.map((solicitud, index) => {
             if (index === key) {
-                // Modificar la solicitud actual
+               
                 return { ...solicitud, estado: 'Aceptado' };
             }
             return solicitud;
@@ -27,7 +27,7 @@ function Solicitudes() {
     const handleCancelar = (key) => {
         const updatedSolicitudes = solicitudes.map((solicitud, index) => {
             if (index === key) {
-                // Modificar la solicitud actual
+               
                 return { ...solicitud, estado: 'Cancelado' };
             }
             return solicitud;

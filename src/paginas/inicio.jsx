@@ -6,6 +6,9 @@ function Inicio() {
     const [texto, setTexto] = useState("");
     const [texto1, setTexto1] = useState("");
     const [texto2, setTexto2] = useState("");
+    const [nombreProyecto, setNombreProyecto] = useState("");
+    const [justificacion, setJustificacion] = useState("");
+    const [prioridad, setPrioridad] = useState("");
     const [boolPrioridarUrgente, setPrioridadUrgente] = useState(false);
     const [boolPrioridarNormal, setPrioridadNormal] = useState(false);
     const [boolPrioridarEstandar, setPrioridadEstandar] = useState(true);
@@ -36,7 +39,7 @@ function Inicio() {
     }
 
     const agregarSolicitud = () => {
-        const nuevaSolicitud = { nombre: texto, descripcion: texto1, fecha: texto2 , estado: "Pendiente" };
+        const nuevaSolicitud = { nombre: texto, descripcion: texto1, fecha: texto2 , estado: "Pendiente",nombreProyecto:nombreProyecto,justificacion:justificacion, prioridad:prioridad };
         setSolicitudes([...solicitudes, nuevaSolicitud]);
         console.log(solicitudes);
         // Guardar datos en localStorage
@@ -72,13 +75,13 @@ function Inicio() {
                             <h4>Nombre del proyecto</h4>
                         </div>
                         <div className='col-2'>
-                            <input type="text" />
+                            <input type="text" placeholder="Ingrese el nombre del proyecto" onChange={(event) => setNombreProyecto(event.target.value)}/>
                         </div>
                         <div className='col-4'>
                             <h4>Descripcion del cambio</h4>
                         </div>
                         <div className='col-2'>
-                            <textarea name="a" id="" onChange={(event) => setTexto1(event.target.value)}></textarea>
+                            <textarea name="a" id="" placeholder="Ingrese la descripción del cambio" onChange={(event) => setTexto1(event.target.value)}></textarea>
                         </div>
                     </div>
                     <div className='row'>
@@ -86,7 +89,7 @@ function Inicio() {
                             <h4>Justificación del cambio</h4>
                         </div>
                         <div className='col-2'>
-                            <textarea name="a" id=""></textarea>
+                            <textarea  id=""placeholder="Ingrese la justificación" onChange={(event) => setJustificacion(event.target.value)}></textarea>
                         </div>
                         <div className='col-4'>
                             <h4>D</h4>
@@ -100,9 +103,9 @@ function Inicio() {
                             <h4>Prioridad</h4>
                         </div>
                         <div className='col-2'>
-                            <input type="radio" onClick={() => cambiarValorRadioButton(1)} checked={boolPrioridarEstandar} />Estandar <br />
-                            <input type="radio" onClick={() => cambiarValorRadioButton(2)} checked={boolPrioridarNormal} />Normal <br />
-                            <input type="radio" onClick={() => cambiarValorRadioButton(3)} checked={boolPrioridarUrgente} />Urgente <br />
+                            <input type="radio" onClick={() => {cambiarValorRadioButton(1); setPrioridad("Estandar")}} checked={boolPrioridarEstandar} />Estandar <br />
+                            <input type="radio" onClick={() => {cambiarValorRadioButton(2);setPrioridad("Normal")}} checked={boolPrioridarNormal} />Normal <br />
+                            <input type="radio" onClick={() => {cambiarValorRadioButton(3);setPrioridad("Urgente")}} checked={boolPrioridarUrgente} />Urgente <br />
   </div>
                     </div>
                 </div>
@@ -117,22 +120,21 @@ function Inicio() {
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Nombre del Proyecto</th>
+                            <th>Prioridad</th>
                             <th>Nombre del Solicitante</th>
                             <th>Fecha de Emisión</th>
                             <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>001</td>
-                            <td>Sandra Véjar</td>
-                            <td>21/06/2015</td>
-                            <td>Pendiente</td>
-                        </tr>
+                       
                         {solicitudes.map((val, key) => {
                             return (
                                 <tr key={key}>
-                                    <th>{key}</th>
+                                    <th>{key+1}</th>
+                                    <th scope="row">{val.nombreProyecto}</th>
+                                    <th>{val.prioridad}</th>
                                     <th scope="row">{val.nombre}</th>
                                     <td>{val.fecha}</td>
                                     <td>{val.estado}</td>
