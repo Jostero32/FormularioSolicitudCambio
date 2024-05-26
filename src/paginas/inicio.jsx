@@ -48,7 +48,11 @@ function Inicio() {
     
 
     return (
+        
         <div>
+            <div>
+        <img className="banner" src="https://www.uta.edu.ec/v3.2/uta/images/header.png" alt="" />
+      </div>
             <Navbar></Navbar>
             <h1>Solicitud de cambio</h1>
             <form onSubmit={(event) => {
@@ -144,7 +148,11 @@ function Inicio() {
                     </tbody>
                 </table>
             </div>
+            <footer>
+        <p>2024 - UTA</p>
+      </footer>
         </div>
+        
     )
 }
 

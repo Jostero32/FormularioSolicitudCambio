@@ -38,16 +38,24 @@ function Solicitudes() {
     };
 
     return (
+
+        <>
         <div>
+        <div>
+        <img className="banner" src="https://www.uta.edu.ec/v3.2/uta/images/header.png" alt="" />
+      </div>
             <h2>Solicitudes de Cambio</h2>
             <div className='container'>
                 <table className='table'>
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Prioridad</th>
+                            <th>Nombre del Proyecto</th>
                             <th>Nombre del Solicitante</th>
                             <th>Fecha de Emisión</th>
                             <th>Descripción</th>
+                            <th>Justificación</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -56,9 +64,12 @@ function Solicitudes() {
                             return (
                                 <tr key={key}>
                                     <th>{key + 1}</th>
+                                    <th>{val.prioridad}</th>
+                                    <th>{val.nombreProyecto}</th>
                                     <td>{val.nombre}</td>
                                     <td>{val.fecha}</td>
                                     <td>{val.descripcion}</td>
+                                    <td>{val.justificacion}</td>
                                     <td>
                                         <button onClick={() => handleAceptar(key)}>Aceptar</button>
                                         <button onClick={() => handleCancelar(key)}>Denegar</button>
@@ -70,6 +81,10 @@ function Solicitudes() {
                 </table>
             </div>
         </div>
+        <footer>
+        <p>2024 - UTA</p>
+      </footer>
+        </>
     );
 }
 
