@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
 import './inicio.css';
 
@@ -18,8 +17,7 @@ function Inicio() {
             setSolicitudes(storedSolicitudes);
         }
     }, []);
-    const navigate = useNavigate(); // Definir navigate utilizando useNavigate
-
+    
     const cambiarValorRadioButton = (id) => {
         if (id === 1) {
             setPrioridadUrgente(false);
@@ -110,7 +108,7 @@ function Inicio() {
                 </div>
                 <button>Agregar</button>
             </form>
-            <button onClick={() => navigate('/solicitudes')}>Ver Solicitudes</button>
+         
        
             <h2>Solicitudes de Cambio</h2>
 
