@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
 import './inicio.css';
-
-
 
 function Inicio() {
     const [texto, setTexto] = useState("");
@@ -12,6 +11,14 @@ function Inicio() {
     const [boolPrioridarNormal, setPrioridadNormal] = useState(false);
     const [boolPrioridarEstandar, setPrioridadEstandar] = useState(true);
     const [solicitudes, setSolicitudes] = useState([]);
+    useEffect(() => {
+        // Cargar datos del localStorage al inicio
+        const storedSolicitudes = JSON.parse(localStorage.getItem('solicitudes'));
+        if (storedSolicitudes) {
+            setSolicitudes(storedSolicitudes);
+        }
+    }, []);
+    const navigate = useNavigate(); // Definir navigate utilizando useNavigate
 
     const cambiarValorRadioButton = (id) => {
         if (id === 1) {
@@ -31,9 +38,14 @@ function Inicio() {
     }
 
     const agregarSolicitud = () => {
-        setSolicitudes((solicitudes) => [...solicitudes, { nombre: texto, descripcion: texto1, fecha: texto2 }]);
+        const nuevaSolicitud = { nombre: texto, descripcion: texto1, fecha: texto2 , estado: "Pendiente" };
+        setSolicitudes([...solicitudes, nuevaSolicitud]);
         console.log(solicitudes);
+        // Guardar datos en localStorage
+        localStorage.setItem('solicitudes', JSON.stringify([...solicitudes, nuevaSolicitud]));
     }
+    
+
     return (
         <div>
             <Navbar></Navbar>
@@ -93,11 +105,13 @@ function Inicio() {
                             <input type="radio" onClick={() => cambiarValorRadioButton(1)} checked={boolPrioridarEstandar} />Estandar <br />
                             <input type="radio" onClick={() => cambiarValorRadioButton(2)} checked={boolPrioridarNormal} />Normal <br />
                             <input type="radio" onClick={() => cambiarValorRadioButton(3)} checked={boolPrioridarUrgente} />Urgente <br />
-                        </div>
+  </div>
                     </div>
                 </div>
                 <button>Agregar</button>
             </form>
+            <button onClick={() => navigate('/solicitudes')}>Ver Solicitudes</button>
+       
             <h2>Solicitudes de Cambio</h2>
 
             <div className='container'>
@@ -123,16 +137,15 @@ function Inicio() {
                                     <th>{key}</th>
                                     <th scope="row">{val.nombre}</th>
                                     <td>{val.fecha}</td>
-                                    <td>{val.descripcion}</td>
+                                    <td>{val.estado}</td>
                                 </tr>
                             );
                         })}
                     </tbody>
                 </table>
             </div>
-
         </div>
     )
 }
 
-export default Inicio
+export default Inicio;
