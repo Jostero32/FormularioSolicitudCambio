@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../paginas/Navbar'; // Asegúrate de que la ruta sea correcta
+import {Navbar} from '../paginas/Navbar'; // Asegúrate de que la ruta sea correcta
 
 function Solicitudes() {
   const [solicitudes, setSolicitudes] = useState([]);
@@ -38,11 +38,12 @@ function Solicitudes() {
 
   return (
     <>
-      <Navbar /> {/* Incluir el Navbar aquí */}
+     
       <div>
         <div>
           <img className="banner" src="https://www.uta.edu.ec/v3.2/uta/images/header.png" alt="" />
         </div>
+        <Navbar /> {/* Incluir el Navbar aquí */}
         <h2>Solicitudes de Cambio</h2>
         <div className='container'>
           <table className='table'>

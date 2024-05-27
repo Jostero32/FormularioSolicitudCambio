@@ -1,0 +1,58 @@
+.navbar {
+    display: flex;
+    padding: 10px;
+    background-color: #f8f9fa; /* Ajusta el color de fondo según tus necesidades */
+  }
+  
+  .navbar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%; /* Hace que la lista ocupe el ancho completo del contenedor */
+  }
+  
+  .spacer {
+    margin-left: auto; /* Empuja los elementos siguientes hacia la derecha */
+  }
+  
+  .logout-button {
+    padding: 10px 20px;
+    background-color: #c42d2d; /* Ajusta el color del botón según tus necesidades */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Opcional: agrega bordes redondeados */
+  }
+  
+  .logout-button:hover {
+    background-color: #8a0909; /* Cambia el color al pasar el cursor */
+  }
+  .custom-navbar {
+    background-color: #b4aeae;
+    overflow: hidden;
+  }
+  
+  .navbar-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centra los elementos */
+    align-items: center;
+    height: 100%; /* Asegura que se centra verticalmente si hay más contenido */
+  }
+  
+  .action-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+  }
+  
+  .action-button:hover {
+    background-color: #45a049;
+  }

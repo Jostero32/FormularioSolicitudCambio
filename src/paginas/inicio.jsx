@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar.jsx';
+import {Navbar,NavbarAgregar} from './Navbar.jsx';
 import './inicio.css';
 
 function Inicio() {
@@ -113,7 +113,7 @@ function Inicio() {
   </div>
                     </div>
                 </div>
-                <button>Agregar</button>
+                <NavbarAgregar/>
             </form>
          
        
