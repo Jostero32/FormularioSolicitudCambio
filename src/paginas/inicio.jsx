@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar.jsx';
+import {Navbar,NavbarAgregar} from './Navbar.jsx';
 import './inicio.css';
 
 function Inicio() {
@@ -95,12 +95,7 @@ function Inicio() {
                         <div className='col-2'>
                             <textarea  id=""placeholder="Ingrese la justificación" onChange={(event) => setJustificacion(event.target.value)}></textarea>
                         </div>
-                        <div className='col-4'>
-                            <h4>D</h4>
-                        </div>
-                        <div className='col-2'>
-                            <textarea name="a" id=""></textarea>
-                        </div>
+                        
                     </div>
                     <div className='row'>
                         <div className='col-4'>
@@ -113,7 +108,7 @@ function Inicio() {
   </div>
                     </div>
                 </div>
-                <button>Agregar</button>
+                <NavbarAgregar/>
             </form>
          
        
