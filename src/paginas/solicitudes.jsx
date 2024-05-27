@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Navbar} from '../paginas/Navbar'; // Asegúrate de que la ruta sea correcta
-
+import DescargarPDFButton from './doPDF';
 function Solicitudes() {
   const [solicitudes, setSolicitudes] = useState([]);
 
@@ -41,7 +41,7 @@ function Solicitudes() {
      
       <div>
         <div>
-          <img className="banner" src="https://www.uta.edu.ec/v3.2/uta/images/header.png" alt="" />
+          <img className="banner" src="https://media.licdn.com/dms/image/D4E3DAQHtLvdyD8Eo_w/image-scale_191_1128/0/1689693829992/cediaec_cover?e=2147483647&v=beta&t=EN9695sQ-SM9i-6QKfnkfTxNifhYvfHyUIForQVEoYg" alt="" />
         </div>
         <Navbar /> {/* Incluir el Navbar aquí */}
         <h2>Solicitudes de Cambio</h2>
@@ -73,6 +73,7 @@ function Solicitudes() {
                     <button onClick={() => handleAceptar(key)}>Aceptar</button>
                     <button onClick={() => handleCancelar(key)}>Denegar</button>
                   </td>
+                  <td> <DescargarPDFButton solicitud={{...val, id: key + 1}} /> </td>
                 </tr>
               ))}
             </tbody>
@@ -80,7 +81,7 @@ function Solicitudes() {
         </div>
       </div>
       <footer>
-        <p>2024 - UTA</p>
+        <p>2024 - CEDIA</p>
       </footer>
     </>
   );
