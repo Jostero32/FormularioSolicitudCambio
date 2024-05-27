@@ -1,17 +1,24 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
+  const navigate = useNavigate();
 
-    return (
-        <>
-            <nav className="navbar bg-body-tertiary">
-                <form className="container-fluid justify-content-start">
-                    <button className="btn btn-outline-success me-2" type="button">Main button</button>
-                    <button className="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
-                </form>
-            </nav>
-        </>
-    )
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    navigate('/');
+  };
+
+  return (
+    <nav>
+      <ul>
+
+        <li>
+          <button onClick={handleLogout}>Cerrar Sesión</button>
+        </li>
+      </ul>
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;
