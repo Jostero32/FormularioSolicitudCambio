@@ -95,12 +95,7 @@ function Inicio() {
                         <div className='col-2'>
                             <textarea  id=""placeholder="Ingrese la justificación" onChange={(event) => setJustificacion(event.target.value)}></textarea>
                         </div>
-                        <div className='col-4'>
-                            <h4>D</h4>
-                        </div>
-                        <div className='col-2'>
-                            <textarea name="a" id=""></textarea>
-                        </div>
+                        
                     </div>
                     <div className='row'>
                         <div className='col-4'>
