@@ -31,10 +31,14 @@ const DescargarPDFButton = ({ solicitud }) => {
       { label: 'Prioridad', value: solicitud.prioridad },
       { label: 'Nombre del Proyecto', value: solicitud.nombreProyecto },
       { label: 'Nombre del Solicitante', value: solicitud.nombre },
+      { label: 'Correo Electronico', value: solicitud.correo },
+      { label: 'Departamento', value: solicitud.departamento },
       { label: 'Fecha', value: solicitud.fecha },
       { label: 'Descripción', value: solicitud.descripcion },
       { label: 'Justificación', value: solicitud.justificacion },
       { label: 'Estado', value: solicitud.estado },
+      { label: 'Area del Software', value: solicitud.areaSoftware },
+      { label: 'Impacto', value: solicitud.impacto },
     ];
 
     fields.forEach((field, index) => {
