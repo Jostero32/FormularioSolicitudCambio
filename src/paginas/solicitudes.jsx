@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Navbar} from '../paginas/Navbar'; // Asegúrate de que la ruta sea correcta
-
+import DescargarPDFButton from './doPDF';
 function Solicitudes() {
   const [solicitudes, setSolicitudes] = useState([]);
 
@@ -73,6 +73,7 @@ function Solicitudes() {
                     <button onClick={() => handleAceptar(key)}>Aceptar</button>
                     <button onClick={() => handleCancelar(key)}>Denegar</button>
                   </td>
+                  <td> <DescargarPDFButton solicitud={{...val, id: key + 1}} /> </td>
                 </tr>
               ))}
             </tbody>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Navbar,NavbarAgregar} from './Navbar.jsx';
 import './inicio.css';
+import DescargarPDFButton from './doPDF.jsx';
 
 function Inicio() {
     const [texto, setTexto] = useState("");
@@ -136,7 +137,10 @@ function Inicio() {
                                     <th>{val.prioridad}</th>
                                     <th scope="row">{val.nombre}</th>
                                     <td>{val.fecha}</td>
-                                    <td>{val.estado}</td>
+                                    <td>{val.estado}
+                                    </td>
+                                    <td> <DescargarPDFButton solicitud={{...val, id: key + 1}} /> 
+                                   </td>
                                 </tr>
                             );
                         })}
