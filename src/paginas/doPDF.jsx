@@ -28,12 +28,12 @@ const DescargarPDFButton = ({ solicitud }) => {
 
     const fields = [
       { label: 'ID', value: solicitud.id },
+      { label: 'Prioridad', value: solicitud.prioridad },
+      { label: 'Nombre del Proyecto', value: solicitud.nombreProyecto },
       { label: 'Nombre del Solicitante', value: solicitud.nombre },
       { label: 'Fecha', value: solicitud.fecha },
       { label: 'Descripción', value: solicitud.descripcion },
-      { label: 'Nombre del Proyecto', value: solicitud.nombreProyecto },
       { label: 'Justificación', value: solicitud.justificacion },
-      { label: 'Prioridad', value: solicitud.prioridad },
       { label: 'Estado', value: solicitud.estado },
     ];
 
@@ -46,7 +46,17 @@ const DescargarPDFButton = ({ solicitud }) => {
       // Añadir el texto
       doc.text(`${field.label}: ${field.value}`, marginX + 5, posY + lineHeight);
     });
-
+     // Añadir el párrafo de CEDIA
+     const textCedia = "Agradecemos por su contribución y compromiso con la mejora continua. Este cambio representa un \npaso adelante en nuestro camino hacia la excelencia operativa y la innovación constante. \n Atentamente,\nCEDIA";
+     doc.text(textCedia, marginX, marginY + (fields.length + 1) * boxHeight + 10);
+ 
+     // Centrar el texto 
+     const footerText = "2024 - CEDIA";
+     const pageWidth = doc.internal.pageSize.getWidth();
+     const textWidth = doc.getTextWidth(footerText);
+     const textX = (pageWidth - textWidth) / 2;
+     doc.text(footerText, textX, marginY + fields.length * boxHeight + 100);
+ 
     doc.save(`solicitud_${solicitud.id}.pdf`);
   };
 
